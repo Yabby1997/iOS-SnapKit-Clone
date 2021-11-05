@@ -29,17 +29,19 @@ class ViewController: UIViewController {
         self.view.addSubview(purpleSquare)
         purpleSquare.makeConstraints { make in
             make.top.equalTo(self.view.topAnchor).offset(30)
-            make.bottom.equalTo(self.view.bottomAnchor).offset(-200)
+            make.bottom.equalTo(self.view.bottomAnchor).offset(-30).priority(.defaultLow)
             make.leading.equalTo(self.view.leadingAnchor).offset(30)
             make.trailing.equalTo(self.view.trailingAnchor).offset(-30)
+            make.height.equalTo(50).priority(.defaultHigh)
         }
         
         self.view.addSubview(redSquare)
         redSquare.makeConstraints { make in
             make.top.equalTo(self.purpleSquare.bottomAnchor).offset(30)
             make.bottom.equalTo(self.view.bottomAnchor).offset(-30)
-            make.leading.equalTo(self.view.leadingAnchor).offset(30)
-            make.trailing.equalTo(self.view.trailingAnchor).offset(-30)
+            make.leading.equalTo(self.view.leadingAnchor).priority(800)
+            make.trailing.equalTo(self.view.trailingAnchor).priority(800)
+            make.width.equalTo(200).priority(801)
         }
     }
 }
