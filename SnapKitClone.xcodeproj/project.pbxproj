@@ -13,6 +13,7 @@
 		1DBF645B27357A64000F3150 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DBF645927357A64000F3150 /* Main.storyboard */; };
 		1DBF645D27357A65000F3150 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DBF645C27357A65000F3150 /* Assets.xcassets */; };
 		1DBF646027357A65000F3150 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DBF645E27357A65000F3150 /* LaunchScreen.storyboard */; };
+		1DBF646827357AA2000F3150 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBF646727357AA2000F3150 /* UIView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		1DBF645C27357A65000F3150 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1DBF645F27357A65000F3150 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1DBF646127357A65000F3150 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1DBF646727357AA2000F3150 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				1DBF645327357A64000F3150 /* AppDelegate.swift */,
 				1DBF645527357A64000F3150 /* SceneDelegate.swift */,
 				1DBF645727357A64000F3150 /* ViewController.swift */,
+				1DBF646727357AA2000F3150 /* UIView+Extensions.swift */,
 				1DBF645927357A64000F3150 /* Main.storyboard */,
 				1DBF645C27357A65000F3150 /* Assets.xcassets */,
 				1DBF645E27357A65000F3150 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				1DBF645827357A64000F3150 /* ViewController.swift in Sources */,
 				1DBF645427357A64000F3150 /* AppDelegate.swift in Sources */,
+				1DBF646827357AA2000F3150 /* UIView+Extensions.swift in Sources */,
 				1DBF645627357A64000F3150 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
