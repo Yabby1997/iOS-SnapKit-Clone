@@ -115,6 +115,16 @@ extension UIView {
             constraint?.priority = constraintItems.height.priorityLayout
             constraint?.isActive = true
         }
+        
+        if let anchor = constraintItems.centerX.anchor {
+            let constant = constraintItems.centerX.constant
+            self.centerXAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
+        }
+        
+        if let anchor = constraintItems.centerY.anchor {
+            let constant = constraintItems.centerY.constant
+            self.centerYAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
+        }
     }
 }
 
@@ -123,6 +133,8 @@ class ConstraintItems {
     var bottom = YAxisConstraintItem()
     var leading = XAxisConstraintItem()
     var trailing = XAxisConstraintItem()
+    var centerY = YAxisConstraintItem()
+    var centerX = XAxisConstraintItem()
     var width = ConstantConstraintItem()
     var height = ConstantConstraintItem()
 }
