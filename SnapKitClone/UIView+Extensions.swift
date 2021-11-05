@@ -71,27 +71,49 @@ extension UIView {
         }
         
         if let widthConstant = constraintItems.width.constant {
-            let constraint = widthAnchor.constraint(equalToConstant: widthConstant)
-            constraint.priority = constraintItems.width.priorityLayout
-            constraint.isActive = true
+            var constraint: NSLayoutConstraint? = nil
+            switch constraintItems.width.mode {
+            case .equalTo: constraint = widthAnchor.constraint(equalToConstant: widthConstant)
+            case .greaterThanOrEqualTo: constraint = widthAnchor.constraint(greaterThanOrEqualToConstant: widthConstant)
+            case .lessThanOrEqualTo: constraint = widthAnchor.constraint(lessThanOrEqualToConstant: widthConstant)
+            }
+            constraint?.priority = constraintItems.width.priorityLayout
+            constraint?.isActive = true
         }
         
         if let widthDimension = constraintItems.width.dimension {
-            let constraint = self.widthAnchor.constraint(equalTo: widthDimension)
-            constraint.priority = constraintItems.width.priorityLayout
-            constraint.isActive = true
+            let multiplier = constraintItems.width.multiplier
+            var constraint: NSLayoutConstraint? = nil
+            switch constraintItems.width.mode {
+            case .equalTo: constraint = widthAnchor.constraint(equalTo: widthDimension, multiplier: multiplier)
+            case .greaterThanOrEqualTo: constraint = widthAnchor.constraint(greaterThanOrEqualTo: widthDimension, multiplier: multiplier)
+            case .lessThanOrEqualTo: constraint = widthAnchor.constraint(lessThanOrEqualTo: widthDimension, multiplier: multiplier)
+            }
+            constraint?.priority = constraintItems.width.priorityLayout
+            constraint?.isActive = true
         }
         
         if let heightConstant = constraintItems.height.constant {
-            let constraint = self.heightAnchor.constraint(equalToConstant: heightConstant)
-            constraint.priority = constraintItems.height.priorityLayout
-            constraint.isActive = true
+            var constraint: NSLayoutConstraint? = nil
+            switch constraintItems.height.mode {
+            case .equalTo: constraint = heightAnchor.constraint(equalToConstant: heightConstant)
+            case .greaterThanOrEqualTo: constraint = heightAnchor.constraint(greaterThanOrEqualToConstant: heightConstant)
+            case .lessThanOrEqualTo: constraint = heightAnchor.constraint(lessThanOrEqualToConstant: heightConstant)
+            }
+            constraint?.priority = constraintItems.height.priorityLayout
+            constraint?.isActive = true
         }
         
         if let heightDimension = constraintItems.height.dimension {
-            let constraint = self.heightAnchor.constraint(equalTo: heightDimension)
-            constraint.priority = constraintItems.height.priorityLayout
-            constraint.isActive = true
+            let multiplier = constraintItems.height.multiplier
+            var constraint: NSLayoutConstraint? = nil
+            switch constraintItems.height.mode {
+            case .equalTo: constraint = heightAnchor.constraint(equalTo: heightDimension, multiplier: multiplier)
+            case .greaterThanOrEqualTo: constraint = heightAnchor.constraint(greaterThanOrEqualTo: heightDimension, multiplier: multiplier)
+            case .lessThanOrEqualTo: constraint = heightAnchor.constraint(lessThanOrEqualTo: heightDimension, multiplier: multiplier)
+            }
+            constraint?.priority = constraintItems.height.priorityLayout
+            constraint?.isActive = true
         }
     }
 }
@@ -115,6 +137,7 @@ class ConstantConstraintItem {
     fileprivate var dimension: NSLayoutDimension? = nil
     fileprivate var constant: CGFloat?
     fileprivate var mode: ConstraintMode = .equalTo
+    fileprivate var multiplier: CGFloat = 1
     fileprivate var priorityLayout: UILayoutPriority = .required
     
     @discardableResult
@@ -154,6 +177,12 @@ class ConstantConstraintItem {
     func greaterThanOrEqualTo(_ dimension: NSLayoutDimension) -> ConstantConstraintItem {
         self.dimension = dimension
         self.mode = .greaterThanOrEqualTo
+        return self
+    }
+    
+    @discardableResult
+    func multipledBy(_ multiplier: CGFloat) -> ConstantConstraintItem {
+        self.multiplier = multiplier
         return self
     }
     

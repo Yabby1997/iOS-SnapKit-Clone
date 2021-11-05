@@ -41,7 +41,7 @@ class ViewController: UIViewController {
             make.bottom.equalTo(self.view.bottomAnchor).offset(-30)
             make.leading.equalTo(self.view.leadingAnchor).priority(800)
             make.trailing.equalTo(self.view.trailingAnchor).priority(800)
-            make.width.equalTo(200).priority(801)
+            make.width.equalTo(self.view.widthAnchor).multipledBy(0.5).priority(.required)
         }
     }
 }
